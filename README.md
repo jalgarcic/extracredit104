@@ -11,7 +11,11 @@ Repostory for the extra credit.
 
 ### Instructions to use Git
 1. Download Git @ https://git-scm.com/book/en/v2/Getting-Started-Installing-Git . This will allow you to run it from the terminal.
-2. 
 
 ### Cloning the Repostory (So you can have it in your computer)
+(See https://docs.github.com/es/repositories/creating-and-managing-repositories/cloning-a-repository)
 1. Go to the main page of the repostory.
+2. Press code and copy the link.
+3. Open the location (folder) where you will be storing the project in (\*) the terminal or gitbash.
+(* You can do this by searching cmd on windows, or terminal in Mac. Navigate using cd *location* to get to the folder.)
+5. Type git clone https://github.com/jalgarcic/extracredit104.git

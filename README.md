@@ -4,6 +4,10 @@ Repostory for the extra credit.
 
 ## Instructions 
 
+### Libraries You Should Instaill
+
+1. Numpy
+
 ### Instructions to Use the Repo 
 1. Create a github account.
 2. Send Jorge your email/username.

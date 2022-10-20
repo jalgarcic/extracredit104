@@ -14,4 +14,8 @@ Repostory for the extra credit.
 2. 
 
 ### Cloning the Repostory (So you can have it in your computer)
+(See https://docs.github.com/es/repositories/creating-and-managing-repositories/cloning-a-repository)
 1. Go to the main page of the repostory.
+2. Press code and copy the link.
+3. Open the location (folder) where you will be storing the project in (\*) the terminal or gitbash.
+4. Type git clone https://github.com/jalgarcic/extracredit104.git

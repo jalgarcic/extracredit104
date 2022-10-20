@@ -17,4 +17,5 @@ Repostory for the extra credit.
 1. Go to the main page of the repostory.
 2. Press code and copy the link.
 3. Open the location (folder) where you will be storing the project in (\*) the terminal or gitbash.
-4. Type git clone https://github.com/jalgarcic/extracredit104.git
+(* You can do this by searching cmd on windows, or terminal in Mac. Navigate using cd *location* to get to the folder.)
+5. Type git clone https://github.com/jalgarcic/extracredit104.git

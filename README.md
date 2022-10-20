@@ -12,6 +12,8 @@ Repostory for the extra credit.
 ### Instructions to use Git
 1. Download Git @ https://git-scm.com/book/en/v2/Getting-Started-Installing-Git . This will allow you to run it from the terminal.
 
+## Working with Git
+
 ### Cloning the Repostory (So you can have it in your computer)
 (See https://docs.github.com/es/repositories/creating-and-managing-repositories/cloning-a-repository)
 1. Go to the main page of the repostory.

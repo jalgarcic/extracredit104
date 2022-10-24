@@ -2,7 +2,7 @@
 
 Repostory for the extra credit.
 
-## Instructions 
+## Getting Started 
 
 ### Instructions to Use the Repo 
 1. Create a github account.
@@ -11,10 +11,6 @@ Repostory for the extra credit.
 
 ### Instructions to use Git
 1. Download Git @ https://git-scm.com/book/en/v2/Getting-Started-Installing-Git . This will allow you to run it from the terminal.
-
-### Libraries You Should Instaill
-
-1. Numpy
 
 ## Working with Git
 
@@ -32,3 +28,18 @@ Repostory for the extra credit.
 2. Type "git add ." or "git add *filename.py*". The first one will add all your changes to the repo.
 3. Type: git commit -m "Message to the repo" . This will make a "checkpoint" on git.
 4. Type "git push". This will save the changes. 
+
+## Working with Python and Selecting IDE
+
+### Intalling Python
+You can install Python directly from the developer's website or through a package manager. I use Anaconda7
+
+### Changing the PATH
+One of the most common errors, specially in Windows is not including the direction of Python in the Windows Path. Make sure to add it to PATH.
+
+### Required Libraries (Ongoing)
+Install the following libraries in your environment:
+1. Numpy
+
+### IDE
+There are many options for IDEs, but personally I work Visual Studio Code as it is straightforward and compatible with Git.

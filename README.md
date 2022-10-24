@@ -32,7 +32,7 @@ Repostory for the extra credit.
 ## Working with Python and Selecting IDE
 
 ### Intalling Python
-You can install Python directly from the developer's website or through a package manager. I use Anaconda7
+You can install Python directly from the developer's website or through a package manager, for example, Anaconda.
 
 ### Changing the PATH
 One of the most common errors, specially in Windows is not including the direction of Python in the Windows Path. Make sure to add it to PATH.

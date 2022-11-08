@@ -35,6 +35,14 @@ for i in range(len(temp)):
     print(f"{p}x{length}/({a}x{e})")
     sigma_lst.append(p*length/(a*e))
 
+#sigmaT = alpha*deltaT*len
+delta_T = 10
+lengths = beam.give_l()
+alphas = beam.give_t()
+for l, a in zip(lengths, alphas):
+    print(f"sigma = {a}x{delta_T}x{l})")
+    sigma_lst.append(a*delta_T*l)
+
 print(sigma_lst)
 print(sum(sigma_lst))
 

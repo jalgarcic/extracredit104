@@ -40,6 +40,20 @@ class Beam():
                 return self.e2
             else:
                 return 
+        
+    def thermal_coeff(self, point):
+        if self.partitions == 0:
+            if self.x1 < point and point < self.x2:
+                return self.t1
+            else:
+                return
+        else:
+            if self.x1 < point and point < self.x2:
+                return self.t1
+            elif self.x2 < point and point < self.x3:
+                return self.t2
+            else:
+                return 
             
     def area(self, point):
         if self.partitions == 0:
@@ -54,7 +68,24 @@ class Beam():
                 return self.A2
             else:
                 return 
-        
+    
+    def give_l(self):
+        if self.partitions == 0:
+            return (self.l1)
+        else:
+            return (self.l1, self.l2)
+
+    def give_x(self):
+        if self.partitions == 0:
+            return (self.x1, self.x2)
+        else:
+            return (self.x1, self.x2, self.x3)
+
+    def give_t(self):
+        if self.partitions == 0:
+            return (self.t1)
+        else:
+            return (self.t1, self.t2)
 
     def __repr__(self):
         s = "\nThis Beam has:\n"

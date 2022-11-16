@@ -1,31 +1,32 @@
 import math
 
 class Beam():
-    def __init__(self, length, diameter, elastic_modulus, coefficient_thermal, partitions = 0):
-        self.partitions = partitions
+    def __init__(self):
+        self.partitions = int(input('Enter the number of partitions (MAX 1):\n'))
         if self.partitions == 0:
-            self.x1 = float(length[0])
-            self.x2 = float(length[1])
-            self.l1 = self.x2 - self.x1
-            self.d1 = float(diameter[0])
-            self.A1 = math.pi/4*(self.d1)**2
-            self.e1 = float(elastic_modulus[0])
-            self.t1 = float(coefficient_thermal[0])
-        else:
-            self.x1 = float(length[0])
-            self.x2 = float(length[1])
-            self.x3 = float(length[2])
-            self.l1 = self.x2 - self.x1
-            self.l2 = self.x3 - self.x2
-            self.d1 = float(diameter[0])
-            self.d2 = float(diameter[1])
-            self.A1 = math.pi/4*(self.d1)**2
-            self.A2 = math.pi/4*(self.d2)**2
-            self.e1 = float(elastic_modulus[0])
-            self.e2 = float(elastic_modulus[1])
-            self.t1 = float(coefficient_thermal[0])
-            self.t2 = float(coefficient_thermal[1])
-    
+            self.x1 = float(input('Enter the Initial X Position (Length):\n'))
+            self.x2 = float(input('Enter the Final X Position (Length):\n'))
+            self.l1 = float(self.x2 - self.x1)
+            self.d1 = float(input('Enter the Diameter:\n'))
+            self.A1 = float(math.pi/4*(self.d1)**2)
+            self.e1 = float(input('Enter the Elastic Modulus:\n'))
+            self.t1 = float(input('Enter the Thermal Coefficient Modulus:\n'))
+
+        elif self.partitions == 1:
+            self.x1 = float(input('Enter the Initial X Position (Length):\n'))
+            self.x2 = float(input('Enter the Second X Position (Length):\n'))
+            self.x3 = float(input('Enter the Final X Position (Length):\n'))
+            self.l1 = float(self.x2 - self.x1)
+            self.l2 = float(self.x3 - self.x2)
+            self.d1 = float(input('Enter the First Diameter:\n'))
+            self.d2 = float(input('Enter the Second Diameter:\n'))
+            self.A1 = float(math.pi/4*(self.d1)**2)
+            self.A2 = float(math.pi/4*(self.d2)**2)
+            self.e1 = float(input('Enter the First Elastic Modulus:\n'))
+            self.e2 = float(input('Enter the Second Elastic Modulus:\n'))
+            self.t1 = float(input('Enter the First Thermal Coefficient Modulus:\n'))
+            self.t2 = float(input('Enter the Second Thermal Coefficient Modulus:\n'))
+        
     #Determines the elastic modulus based on the point given.
     def elastic(self, point):
         if self.partitions == 0:
@@ -86,6 +87,11 @@ class Beam():
             return (self.t1)
         else:
             return (self.t1, self.t2)
+    def give_e(self):
+        if self.partitions == 0:
+            return (self.e1)
+        else:
+            return (self.e1, self.e2)
 
     def __repr__(self):
         s = "\nThis Beam has:\n"
@@ -111,8 +117,5 @@ class Beam():
             s += f"Elastic Modulus 1: {self.e1}\n"
             s += f"Elastic Modulus 2: {self.e2}\n"
             s += f"Thermal Coefficient 1: {self.t1}\n"
-            s += f"Thermal Coefficient 2: {self.t1}\n"
+            s += f"Thermal Coefficient 2: {self.t2}\n"
         return s  
-
-        
-

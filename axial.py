@@ -64,6 +64,46 @@ def total_displacement(range_x, pvals, delta_T):
     print("Sigma Total =",sum(sigma_lst))
     return sum(sigma_lst)
 
+def indeterminate():
+    print("Enter Values for Fixed Support and Forces: ")
+    print("We Assume First Wall (A) is at X=0 and Second Wall (B) is at X = L")
+    print("We assume we have a Force (P)")
+    
+    sigma_lst = []
+    lens = beam.give_l()
+    alphas = beam.give_t()
+    forces_arr = []
+
+    delta_T = input_num("Enter change in temperature: ")
+    sigma_user = input_num("Enter sigma between beam and B: ")
+
+    mag = input_num("Enter Magnitude Force: ")
+    dir = input_num("Enter Direction Force (Enter: 1 for +X / -1 for -X): ")
+    forces_arr.extend([0, mag, dir])
+
+    if beam.partitions == 0:
+        pos = input_num("Enter Position Force: ")
+        l1 = pos
+        l2 = beam.x2 - pos
+        print(f"Sigma_T = {alphas}x{delta_T}x{lens}")
+        sigma_lst.append(alphas*delta_T*lens)
+        a = np.array(
+            [[1, 1],
+            [l1/(beam.A1*beam.e1), -l2/(beam.A1*beam.e1)]])
+        b = np.array([forces_arr[1]*forces_arr[2], sigma_user - sum(sigma_lst)])
+        solution = np.linalg.solve(a, b)
+        print("FA:", solution[0], "FB", solution[1])
+    else:
+        for l, a in zip(lens, alphas):
+            print(f"Sigma_T = {a}x{delta_T}x{l}")
+            sigma_lst.append(a*delta_T*l)
+        a = np.array(
+            [[1, 1],
+            [lens[0]/(beam.A1*beam.e1), -lens[1]/(beam.A2*beam.e2)]])
+        b = np.array([forces_arr[1]*forces_arr[2], sigma_user - sum(sigma_lst)])
+        solution = np.linalg.solve(a, b)
+        print("FA:", solution[0], "FB", solution[1])
+
 def make_intervals(fixedsup_x, forces_arr):
     # First we solve for resultant at f_fixed and append it with all the forces.
     # Note that direction should be opposite to resultant.
@@ -135,46 +175,6 @@ def print_axialLoadMenu():
     print("b - Statically Determinate Displacement")
     print("c - Statically Indeterminate Displacement")
     print("q - Exit")
-
-def indeterminate():
-    print("Enter Values for Fixed Support and Forces: ")
-    print("We Assume First Wall (A) is at X=0 and Second Wall (B) is at X = L")
-    print("We assume we have a Force (P)")
-    
-    sigma_lst = []
-    lens = beam.give_l()
-    alphas = beam.give_t()
-    forces_arr = []
-
-    delta_T = input_num("Enter change in temperature: ")
-    sigma_user = input_num("Enter sigma between beam and B: ")
-
-    mag = input_num("Enter Magnitude Force: ")
-    dir = input_num("Enter Direction Force (Enter: 1 for +X / -1 for -X): ")
-    forces_arr.extend([0, mag, dir])
-
-    if beam.partitions == 0:
-        pos = input_num("Enter Position Force: ")
-        l1 = pos
-        l2 = beam.x2 - pos
-        print(f"Sigma_T = {alphas}x{delta_T}x{lens}")
-        sigma_lst.append(alphas*delta_T*lens)
-        a = np.array(
-            [[1, 1],
-            [l1/(beam.A1*beam.e1), -l2/(beam.A1*beam.e1)]])
-        b = np.array([forces_arr[1]*forces_arr[2], sigma_user - sum(sigma_lst)])
-        solution = np.linalg.solve(a, b)
-        print("FA:", solution[0], "FB", solution[1])
-    else:
-        for l, a in zip(lens, alphas):
-            print(f"Sigma_T = {a}x{delta_T}x{l}")
-            sigma_lst.append(a*delta_T*l)
-        a = np.array(
-            [[1, 1],
-            [lens[0]/(beam.A1*beam.e1), -lens[1]/(beam.A2*beam.e2)]])
-        b = np.array([forces_arr[1]*forces_arr[2], sigma_user - sum(sigma_lst)])
-        solution = np.linalg.solve(a, b)
-        print("FA:", solution[0], "FB", solution[1])
            
 def input_num(text):
     num = input(text)

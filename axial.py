@@ -92,7 +92,7 @@ def indeterminate():
             [l1/(beam.A1*beam.e1), -l2/(beam.A1*beam.e1)]])
         b = np.array([forces_arr[1]*forces_arr[2], sigma_user - sum(sigma_lst)])
         solution = np.linalg.solve(a, b)
-        print("FA:", solution[0], "FB", solution[1])
+        print("FA:", solution[0], "FB:", solution[1])
     else:
         for l, a in zip(lens, alphas):
             print(f"Sigma_T = {a}x{delta_T}x{l}")
@@ -102,7 +102,7 @@ def indeterminate():
             [lens[0]/(beam.A1*beam.e1), -lens[1]/(beam.A2*beam.e2)]])
         b = np.array([forces_arr[1]*forces_arr[2], sigma_user - sum(sigma_lst)])
         solution = np.linalg.solve(a, b)
-        print("FA:", solution[0], "FB", solution[1])
+        print("FA:", solution[0], "FB:", solution[1])
 
 def make_intervals(fixedsup_x, forces_arr):
     # First we solve for resultant at f_fixed and append it with all the forces.

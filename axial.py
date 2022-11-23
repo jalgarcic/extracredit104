@@ -157,7 +157,7 @@ def determine_state(calc_displacement):
     if calc_displacement >= user_disp:
         print("\nStatically Indeterminate: Please Use Option c from Menu")
     else:
-        print("\nStatically Determinate: Please Use Option a from Menu")
+        print("\nStatically Determinate: Please Use Option b from Menu")
 
 def execute_axial_menu(option):
     if option == 'a':
